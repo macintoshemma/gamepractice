@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@aws-amplify/cli": "^1.7.1",
+    "aws-amplify": "^1.1.28",
+    "aws-amplify-react": "^2.3.8",
+    "aws-sdk": "^2.472.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
