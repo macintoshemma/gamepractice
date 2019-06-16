@@ -3,7 +3,12 @@ import './App.css';
 import Sidebar from './components/Sidebar/Sidebar'
 import SideDrawer from './components/SideDrawer/SideDrawer'
 import Backdrop from './components/Backdrop/Backdrop'
-import drawerToggleButton from './components/SideDrawer/DrawerToggleButton';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom'
+import Canvas from './components/Snake/Base/Canvas'
 
 class App extends React.Component {
   state = {
@@ -27,18 +32,17 @@ class App extends React.Component {
       backdrop = <Backdrop click={this.drawerToggleClickHandler}/>
     }
     return (
-      <div className="App">
-          <div className="title">
-          <main style={{marginTop: '64px'}}>
-           <p>
-            game practice
-           </p>
-          </main>
-          </div>
-          <Sidebar drawerClickHandler={this.drawerToggleClickHandler} />
-          <SideDrawer show={this.state.sideDrawerOpen} />
-          {backdrop}
-      </div>
+      <Router>
+        <div className="App">
+            <Sidebar drawerClickHandler={this.drawerToggleClickHandler} />
+            <SideDrawer show={this.state.sideDrawerOpen} />
+            {backdrop}
+        </div>
+        <Switch>
+          <Route path='/' exact />
+          <Route path='/snake' component={Canvas} />
+        </Switch>
+      </Router>
     );
   }
  
