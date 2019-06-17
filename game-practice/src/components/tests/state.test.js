@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { GameState, Snake } from '../Snake/Snake2/state'
+import { GameState, Snake, NUMBER_OF_ROWS, NUMBER_OF_COLS, TYPES } from '../Snake/Snake2/state'
 
 describe('Initial Game State', () => {
   let gameState = {}
@@ -9,27 +9,13 @@ describe('Initial Game State', () => {
     gameState = new GameState()
   })
 
-  describe('Grid', () => {
-    it('initial grid has 20 rows and 20 cols', () => {
-      const grid = gameState.grid
-  
-      expect(grid.length).toBe(20)
-      expect(grid[0].length).toBe(20)
-    }),
-    it('initial grid is initialized with 0', () => {
-      const grid = gameState.grid
-      
-      const gridZeroed = grid.every(row => row.every(cell => cell !== undefined))
-      expect(gridZeroed).toBeTruthy()
-    })
-  })
- 
   describe('Snake', () => {
-    it('random position is assigned', () => {
-      const snake = gameState.snake
+    it.only('has been initialized', () => {
+      const snake = new Snake()
       
-      expect(snake.head.x).toBeGreaterThanOrEqual(0)
-      expect(snake.head.y).toBeGreaterThanOrEqual(0)
+      expect(snake.body).toHaveLength(4)
+      expect(snake.direction).toHaveLength(2)
+      expect(snake.type).toBeDefined()      
     })
     it('is placed on the grid', () => {
       const { snake } = gameState
@@ -47,7 +33,7 @@ describe('Initial Game State', () => {
       expect(snake.tail[0].y).toBe(5)
     })
   }),
-  describe.only('isState', () => {
+  describe('isState', () => {
     it('is truthy when asked about tail', () => {
       const snake = new Snake({length: 3, head: {x: 3, y: 3}})
       expect(snake.isSnake({x: 0, y: 3})).toBeTruthy()
