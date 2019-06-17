@@ -2,72 +2,16 @@
 
 
 .App {
-  background-color: #1D1D1D;
+  background-color: #26262B;
   min-height: 100vh;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  font-size: calc(20px + 2vmin);
+  font-size: calc(5px + 2vmin);
   color: white;
   font-family: 'Tajawal', sans-serif;
   font-weight: 500;
 }
 
-p {
-  margin-left: 20px;
-  margin-top: 20px;
-}
-
-.title {
-  -webkit-animation: fadeInDown 5s; /* Safari 4+ */
-  -moz-animation:    fadeInDown 5s; /* Fx 5+ */
-  -o-animation:      fadeInDown 5s; /* Opera 12+ */
-  animation:         fadeInDown 1s; /* IE 10+, Fx 29+ */
-  height: 3vmin;
-}
-
-@keyframes fadeInDown {
- from  { 
-   opacity: 0; 
-   transform: translate3d(0, -100%, 0);
-  }
-  to { 
-    opacity: 1; 
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@-webkit-keyframes fadeInDown {
-  from  { 
-    opacity: 0; 
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-  }
-  to { 
-    opacity: 1; 
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
-@-moz-keyframes fadeInDown {
- from  { 
-   opacity: 0; 
-   transform: translate3d(0, -100%, 0);
-  }
-  to { 
-    opacity: 1;
-    transform: translate3d(0, 0, 0); 
-  }
-}
-@-o-keyframes fadeInDown {
- from  { 
-   opacity: 0; 
-   transform: translate3d(0, -100%, 0);
-  }
-  to { 
-    opacity: 1; 
-    transform: translate3d(0, 0, 0);
-  }
-}

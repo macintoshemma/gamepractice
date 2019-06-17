@@ -6,7 +6,7 @@ const styles = {
     left: 0,
     width: '100%',
     height: '56px',
-    borderBottom: '0.7px solid rgba(130, 130, 130, 0.6)'
+    borderBottom: '0.7px solid rgba(130, 130, 130, 0.5)'
   },
   toolbar__navigation: {
     display: 'flex',
