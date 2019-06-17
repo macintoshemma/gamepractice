@@ -8,7 +8,7 @@ class GameState extends React.Component {
   constructor(props) {
     super(props)
     this.grid = this.initGrid()
-    this.snake = new Snake(this.onHeadMoved.bind(this))
+    this.snake = new Snake()
     //this.fillGrid()
   }
 
@@ -41,17 +41,23 @@ class GameState extends React.Component {
 class Snake extends Component {
   constructor(props) {
     super(props)
-    this.length = 3
-    this.head = this.randomPlace()
+    if(this.props) {
+      this.head = this.props.head
+      this.length = this.props.length
+    }
+    if(this.props === undefined){
+      this.head = this.randomPlace()
+      this.length = 3
+    }
     this.tail = this.initTail()
   }
 
   initTail() {
     let tail = []
-    for (let i = -1; i > (-this.length); i--) {
-      tail.push({x: this.head.x - i, y: this.head.y - i})
+    for (let i = 1; i <= this.length; i++) {
+      tail.push({x: this.head.x - i, y: this.head.y})
     }
-   
+    return tail
   }
 
   randomPlace() {
@@ -66,8 +72,10 @@ class Snake extends Component {
     this.head = {x, y}
   }
 
-  snakeState(x, y) {
-
+  isSnake({ x, y }) {
+    return this.tail.concat([this.head]).some(el => {
+      return el.x === x && el.y === y
+    })
   }
 
   move() {
@@ -75,4 +83,7 @@ class Snake extends Component {
   }
 }
 
-export default GameState
+module.exports = {
+  GameState,
+  Snake
+}
